@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useAppDispather, useAppSelector } from './hooks';
+import { incremented, decremented } from './features/countSlice';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  const count = useAppSelector(state => state.count.value);
+  const dispatch = useAppDispather();
+
+  const changeCount = (operation : string) => {
+    if(operation === 'plus') {
+      dispatch(incremented());
+    } else {
+      dispatch(decremented());
+    }
+  }
+  
+  return <div className='App'>
+    <div className='counter-wrapper'>
+      <button type='button' className='btn' onClick={(e) => changeCount('minus')}>-1</button>
+      <span className='count'>{count}</span>
+      <button type='button' className='btn' onClick={(e) => changeCount('plus')}>+1</button>
     </div>
-  );
+  </div>
 }
 
 export default App;
