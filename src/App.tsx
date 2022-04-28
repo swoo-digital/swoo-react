@@ -1,6 +1,8 @@
 import { useAppDispather, useAppSelector } from './hooks';
 import { incremented, decremented } from './features/countSlice';
 import './App.css';
+import Box from './components/Box/box';
+import Button from './components/Button/button';
 
 function App() {
 
@@ -16,11 +18,11 @@ function App() {
   }
   
   return <div className='App'>
-    <div className='counter-wrapper'>
-      <button type='button' className='btn' onClick={(e) => changeCount('minus')}>-1</button>
+    <Box>
+      <Button onClick={(e) => changeCount('minus')}>-1</Button>
       <span className='count'>{count}</span>
-      <button type='button' className='btn' onClick={(e) => changeCount('plus')}>+1</button>
-    </div>
+      <Button onClick={(e) => changeCount('plus')}>+1</Button>
+    </Box>
   </div>
 }
 
