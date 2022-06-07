@@ -19,10 +19,22 @@ export default function Counter() {
 
   return (
     <Box data-testid="counterApp" >
-      <Button testId="counterDown" onClick={counterDown} title="-1" />
+      <Button
+        size="small"
+        variant={"primary"}
+        testId="counterDown"
+        onClick={counterDown}
+        title="-1"
+      />
       <CountView data-testid="counter">{count}</CountView>
-      <Button testId="counterUp" onClick={counterUp} title="1" />
+      <Button
+        size="large"
+        variant={"secondary"}
+        testId="counterUp"
+        onClick={counterUp}
+        title="1"
+      />
     </Box>
   )
-  
+
 }

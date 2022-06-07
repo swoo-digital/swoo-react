@@ -1,35 +1,48 @@
 import styled from "styled-components";
+import { buttonStyle, variant } from "styled-system"
+import { ButtonProps, ButtonTextProps } from "./Button.props";
 
-export const ButtonBox = styled.button`
-  box-sizing: border-box;
-  flex-shrink: 0;
-  width: 160px;
-  height: auto; /* 61px */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  background-color: #ffffff;
-  overflow: visible;
-  border-radius: 24px;
-  border:none;
-  @media (min-width: 991px) {
-    cursor:pointer;
-  } 
-  outline:none;
-`;
+const titleStyles = variant({
+  prop: "variant",
+  key: "buttonText"
+})
 
-export const ButtonTitle = styled.p`
-  flex-shrink: 0;
-  width: auto; /* 23px */
-  height: auto; /* 29px */
-  white-space: pre;
-  font-weight: 700;
-  font-family: "Inter-Bold", "Inter", sans-serif;
-  color: #000000;
-  font-size: 24px;
-  letter-spacing: 0px;
-  line-height: 1.2;
-  margin:0;
-`
+const buttonSize = variant({
+  prop: "size",
+  key: "buttonSizes"
+});
+
+export const ButtonBox = styled("button")<ButtonProps>(
+  {
+    "box-sizing": "border-box",
+    "flex-shrink": 0,
+    "width": "160px",
+    "height": "auto",
+    "display": "flex",
+    "flex-direction": "row",
+    "align-items": "center",
+    padding: "16px",
+    overflow: "visible",
+    border: "none",
+    outline: "none",
+    "justify-content": "center",
+    cursor: "pointer"
+  },
+  buttonStyle,
+  buttonSize
+)
+
+export const ButtonTitle = styled("p")<ButtonTextProps>({
+  "flex-shrink": 0,
+  width: "auto", /* 23px */
+  height: "auto", /* 29px */
+  "white-space": "pre",
+  "font-weight": "700",
+  "font-family": '"Inter-Bold", "Inter", sans-serif',
+  "font-size": "24px",
+  "letter-spacing": "0px",
+  "line-height": '1.2',
+  margin: 0
+},
+  titleStyles
+)
