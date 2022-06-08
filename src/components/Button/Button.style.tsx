@@ -2,9 +2,14 @@ import styled from "styled-components";
 import { buttonStyle, variant } from "styled-system"
 import { ButtonProps, ButtonTextProps } from "./Button.props";
 
-const titleStyles = variant({
+const titleColors = variant({
   prop: "variant",
   key: "buttonText"
+})
+
+const titleStyles = variant({
+  prop: "size",
+  key: "buttonTextStyles"
 })
 
 const buttonSize = variant({
@@ -12,37 +17,27 @@ const buttonSize = variant({
   key: "buttonSizes"
 });
 
+
 export const ButtonBox = styled("button")<ButtonProps>(
   {
-    "box-sizing": "border-box",
-    "flex-shrink": 0,
-    "width": "160px",
-    "height": "auto",
-    "display": "flex",
-    "flex-direction": "row",
-    "align-items": "center",
-    padding: "16px",
-    overflow: "visible",
+    display: "flex",
+    cursor: "pointer",
     border: "none",
     outline: "none",
-    "justify-content": "center",
-    cursor: "pointer"
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center"
   },
   buttonStyle,
   buttonSize
 )
 
 export const ButtonTitle = styled("p")<ButtonTextProps>({
-  "flex-shrink": 0,
-  width: "auto", /* 23px */
-  height: "auto", /* 29px */
-  "white-space": "pre",
-  "font-weight": "700",
-  "font-family": '"Inter-Bold", "Inter", sans-serif',
-  "font-size": "24px",
-  "letter-spacing": "0px",
-  "line-height": '1.2',
+  fontWeight: "700",
+  fontFamily: '"Inter-Bold", "Inter", sans-serif',
+  lineHeight: '1.2',
   margin: 0
 },
-  titleStyles
+  titleStyles,
+  titleColors
 )

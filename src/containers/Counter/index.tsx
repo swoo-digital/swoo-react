@@ -3,8 +3,15 @@ import Button from "../../components/Button";
 import { decrement, increment, selectCount } from "./counterSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { CountView } from "./Counter.style";
+import { FC } from "react"; 
+import { sizeTypes, variantTypes } from "../../utils/types";
 
-export default function Counter() {
+interface CounterProps {
+  variant?: variantTypes,
+  size?: sizeTypes
+}
+
+const Counter: FC<CounterProps> = ({ variant = "primary", size = "medium" }) => {
 
   const count = useAppSelector(selectCount)
   const dispatch = useAppDispatch()
@@ -18,18 +25,24 @@ export default function Counter() {
   }
 
   return (
-    <Box data-testid="counterApp" >
+    <Box variant={variant} data-testid="counterApp" >
       <Button
-        size="small"
-        variant={"primary"}
+        size={size}
+        variant={variant}
         testId="counterDown"
         onClick={counterDown}
         title="-1"
       />
-      <CountView data-testid="counter">{count}</CountView>
+      <CountView
+        size={size}
+        variant={variant}
+        data-testid="counter"
+      >
+        {count}
+      </CountView>
       <Button
-        size="large"
-        variant={"secondary"}
+        size={size}
+        variant={variant}
         testId="counterUp"
         onClick={counterUp}
         title="1"
@@ -38,3 +51,4 @@ export default function Counter() {
   )
 
 }
+export default Counter

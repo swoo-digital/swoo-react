@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { buttonVariant, buttonSize } from "./Button.props";
+import { sizeTypes, variantTypes } from "../../utils/types";
 import { ButtonBox, ButtonTitle } from "./Button.style";
 
 interface ButtonProps {
 	title: string | number;
 	onClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
 	testId?: string;
-	variant?: buttonVariant,
-	size?: buttonSize
+	variant?: variantTypes,
+	size?: sizeTypes
 }
 
 const Button: FC<ButtonProps> = ({ title, onClick, testId, variant = "primary", size = "medium" }) => {
@@ -15,8 +15,10 @@ const Button: FC<ButtonProps> = ({ title, onClick, testId, variant = "primary", 
 		<ButtonBox
 			size={size}
 			variant={variant}
-			data-testid={testId} onClick={onClick}>
-			<ButtonTitle variant={variant}>
+			data-testid={testId}
+			onClick={onClick}
+		>
+			<ButtonTitle size={size} variant={variant}>
 				{title}
 			</ButtonTitle>
 		</ButtonBox>

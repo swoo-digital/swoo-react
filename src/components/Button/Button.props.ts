@@ -1,15 +1,14 @@
+import { sizeTypes, variantTypes } from "../../utils/types";
 
-export type buttonVariant = "primary" | "secondary"
-
-export type buttonSize = "small" | "medium" | "large"
 
 export interface VariantProps {
-  variant: buttonVariant;
-  size: buttonSize;
+  variant: variantTypes;
+  size: sizeTypes;
 }
 
 export interface TextVariantProps {
-  variant: buttonVariant; 
+  variant: variantTypes;
+  size: sizeTypes;
 }
 
 export type ButtonProps = VariantProps
