@@ -30,7 +30,9 @@ const App = () => {
         bg="navy"
       >
         <Box>
-          <Button onClick={decreaseCounter}>-1</Button>
+          <Button onClick={decreaseCounter} data-testid="decreaseButton">
+            -1
+          </Button>
         </Box>
         <Box
           display="flex"
@@ -38,11 +40,14 @@ const App = () => {
           fontSize="64px"
           color="green"
           my="105px"
+          data-testid="counterContainer"
         >
           {count}
         </Box>
         <Box>
-          <Button onClick={increaseCounter}>+1</Button>
+          <Button onClick={increaseCounter} data-testid="increaseButton">
+            +1
+          </Button>
         </Box>
       </Box>
     </ThemeProvider>
