@@ -4,34 +4,49 @@ import theme from './theme'
 import './App.scss'
 import Box from './components/Box'
 import Button from './components/Button'
+import { useAppSelector, useAppDispatch } from './hooks'
+import { decrement, increment } from './stores/counter'
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Box
-      display="flex"
-      flex="1 1 auto"
-      justifyContent="center"
-      alignItems="center"
-      flexDirection="column"
-      bg="navy"
-    >
-      <Box>
-        <Button>-1</Button>
-      </Box>
+const App = () => {
+  const count = useAppSelector((state) => state.counter.value)
+  const dispatch = useAppDispatch()
+
+  const increaseCounter = () => {
+    dispatch(increment())
+  }
+
+  const decreaseCounter = () => {
+    dispatch(decrement())
+  }
+
+  return (
+    <ThemeProvider theme={theme}>
       <Box
         display="flex"
+        flex="1 1 auto"
+        justifyContent="center"
         alignItems="center"
-        fontSize="64px"
-        color="green"
-        my="105px"
+        flexDirection="column"
+        bg="navy"
       >
-        1
+        <Box>
+          <Button onClick={decreaseCounter}>-1</Button>
+        </Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          fontSize="64px"
+          color="green"
+          my="105px"
+        >
+          {count}
+        </Box>
+        <Box>
+          <Button onClick={increaseCounter}>+1</Button>
+        </Box>
       </Box>
-      <Box>
-        <Button>+1</Button>
-      </Box>
-    </Box>
-  </ThemeProvider>
-)
+    </ThemeProvider>
+  )
+}
 
 export default App
