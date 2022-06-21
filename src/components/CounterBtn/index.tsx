@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { color } from 'styled-system'
 
 const CounterBtn = styled.div`
   padding: 16px;
@@ -10,6 +11,8 @@ const CounterBtn = styled.div`
   color: black;
   cursor: pointer;
   user-select: none;
+
+  ${color}
 `;
 
 export default CounterBtn;

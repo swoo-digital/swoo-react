@@ -14,17 +14,18 @@ export function Counter() {
   const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
 
-
   return (
     <CounterContainer>
         <CounterBtn 
+          color="black"
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           -1
         </CounterBtn>
-        <Count >{count}</Count>
+        <Count color="navy">{count}</Count>
         <CounterBtn
+          color="black"
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
