@@ -1,12 +1,11 @@
 import styled from "styled-components/macro";
-// @ts-ignore
-import { color } from 'styled-system'
+import { color, ColorProps  } from 'styled-system'
 
-const Count = styled.div`
+const Count = styled.div<ColorProps>`
   text-align: center;
   font-size: 64px;
   font-weight: 700;
-  
+
   ${color}
 `;
 

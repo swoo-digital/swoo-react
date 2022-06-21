@@ -17,6 +17,7 @@ export function Counter() {
   return (
     <CounterContainer>
         <CounterBtn 
+          bg="white"
           color="black"
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
@@ -25,6 +26,7 @@ export function Counter() {
         </CounterBtn>
         <Count color="navy">{count}</Count>
         <CounterBtn
+          bg="white"
           color="black"
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
