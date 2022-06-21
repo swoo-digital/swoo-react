@@ -6,6 +6,9 @@ import {
   increment,
   selectCount,
 } from './counterSlice';
+import CounterContainer from '../../components/CounterContainer';
+import Count from '../../components/Count';
+import CounterBtn from '../../components/CounterBtn';
 
 export function Counter() {
   const count = useAppSelector(selectCount);
@@ -13,23 +16,20 @@ export function Counter() {
 
 
   return (
-    <div>
-      <div  >
-        <button 
+    <CounterContainer>
+        <CounterBtn 
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           -1
-        </button>
-        <span >{count}</span>
-        <button
+        </CounterBtn>
+        <Count >{count}</Count>
+        <CounterBtn
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
           +1
-        </button>
-      </div>
-
-    </div>
+        </CounterBtn>
+    </CounterContainer>
   );
 }
