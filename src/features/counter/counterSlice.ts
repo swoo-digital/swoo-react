@@ -3,12 +3,10 @@ import { RootState } from '../../app/store';
 
 export interface CounterState {
   value: number;
-  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: CounterState = {
-  value: 0,
-  status: 'idle',
+  value: 0
 };
 
 
